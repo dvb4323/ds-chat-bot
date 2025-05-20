@@ -1,37 +1,54 @@
+import os
 import json
-import tiktoken
+import re
 from tqdm import tqdm
 
-# Cấu hình
-input_path = "../data/cleaned_healthcare_qa.jsonl"
-output_path = "../data/chunked_healthcare_qa.jsonl"
-max_tokens = 200
+# Đường dẫn dữ liệu
+INPUT_FILE = "../data/cleaned_healthcare_qa.jsonl"
+OUTPUT_FILE = "../data/chunked_healthcare_qa.jsonl"
+CHUNK_SIZE_WORDS = 200
+OVERLAP_WORDS = 50
 
-# Chọn tokenizer (tùy model bạn dùng, ví dụ: gpt-3.5-turbo)
-encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+def clean_text(text):
+    """Làm sạch văn bản"""
+    return re.sub(r"\s+", " ", text).strip()
 
-def chunk_text(text, max_tokens):
-    tokens = encoding.encode(text)
-    chunks = [tokens[i:i+max_tokens] for i in range(0, len(tokens), max_tokens)]
-    return [encoding.decode(chunk) for chunk in chunks]
+def split_into_chunks(text, chunk_size=200, overlap=50):
+    """Tách văn bản thành các đoạn theo từ, có overlap"""
+    words = text.split()
+    chunks = []
+    i = 0
+    while i < len(words):
+        chunk = words[i:i + chunk_size]
+        chunks.append(" ".join(chunk))
+        i += chunk_size - overlap
+    return chunks
 
-count = 0
-with open(input_path, "r", encoding="utf-8") as infile, open(output_path, "w", encoding="utf-8") as outfile:
-    for line in tqdm(infile, desc="🧩 Đang chia nhỏ response"):
-        item = json.loads(line)
-        prompt = item["prompt"]
-        response = item["response"]
+def chunk_dataset(input_path, output_path, chunk_size, overlap):
+    chunked_count = 0
+    with open(output_path, "w", encoding="utf-8") as fout:
+        with open(input_path, "r", encoding="utf-8") as fin:
+            for line in tqdm(fin, desc="Chunking responses"):
+                entry = json.loads(line)
+                prompt = clean_text(entry.get("prompt", ""))
+                response = clean_text(entry.get("response", ""))
 
-        chunks = chunk_text(response, max_tokens)
+                response_chunks = split_into_chunks(response, chunk_size, overlap)
 
-        for i, chunk in enumerate(chunks):
-            json.dump({
-                "prompt": prompt,
-                "response": chunk,
-                "chunk_id": i + 1,
-                "total_chunks": len(chunks)
-            }, outfile, ensure_ascii=False)
-            outfile.write("\n")
-            count += 1
+                for chunk in response_chunks:
+                    new_entry = {
+                        "prompt": prompt,    # giữ nguyên
+                        "response": chunk    # chia nhỏ
+                    }
+                    fout.write(json.dumps(new_entry, ensure_ascii=False) + "\n")
+                    chunked_count += 1
 
-print(f"✅ Đã chia nhỏ và lưu {count} response chunk vào {output_path}")
+    print(f"✅ Đã tạo {chunked_count} chunks từ response và lưu vào {output_path}")
+
+if __name__ == "__main__":
+    chunk_dataset(
+        input_path=INPUT_FILE,
+        output_path=OUTPUT_FILE,
+        chunk_size=CHUNK_SIZE_WORDS,
+        overlap=OVERLAP_WORDS
+    )
