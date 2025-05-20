@@ -1,43 +1,37 @@
-import nltk
 import json
+import tiktoken
 from tqdm import tqdm
 
-nltk.download("punkt")
+# Cấu hình
+input_path = "../data/cleaned_healthcare_qa.jsonl"
+output_path = "../data/chunked_healthcare_qa.jsonl"
+max_tokens = 200
 
-MAX_TOKENS = 200  # hoặc dùng word count nếu không dùng tokenizer
+# Chọn tokenizer (tùy model bạn dùng, ví dụ: gpt-3.5-turbo)
+encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
 
-def chunk_text(text, max_words=MAX_TOKENS):
-    from nltk.tokenize import sent_tokenize
-    sentences = sent_tokenize(text)
-    chunks, current = [], []
+def chunk_text(text, max_tokens):
+    tokens = encoding.encode(text)
+    chunks = [tokens[i:i+max_tokens] for i in range(0, len(tokens), max_tokens)]
+    return [encoding.decode(chunk) for chunk in chunks]
 
-    count = 0
-    for sent in sentences:
-        words = sent.split()
-        if count + len(words) > max_words:
-            if current:
-                chunks.append(" ".join(current))
-                current = []
-                count = 0
-        current.append(sent)
-        count += len(words)
-
-    if current:
-        chunks.append(" ".join(current))
-    return chunks
-
-input_path = "data/cleaned_healthcare_qa.jsonl"
-output_path = "data/cleaned_chunked_healthcare_qa.jsonl"
-
+count = 0
 with open(input_path, "r", encoding="utf-8") as infile, open(output_path, "w", encoding="utf-8") as outfile:
-    for line in tqdm(infile):
+    for line in tqdm(infile, desc="🧩 Đang chia nhỏ response"):
         item = json.loads(line)
-        question = item["question"]
-        answer = item["answer"]
+        prompt = item["prompt"]
+        response = item["response"]
 
-        chunks = chunk_text(answer)
-        for chunk in chunks:
-            json.dump({"instruction": "answer the medical question", "question": question, "answer": chunk}, outfile, ensure_ascii=False)
+        chunks = chunk_text(response, max_tokens)
+
+        for i, chunk in enumerate(chunks):
+            json.dump({
+                "prompt": prompt,
+                "response": chunk,
+                "chunk_id": i + 1,
+                "total_chunks": len(chunks)
+            }, outfile, ensure_ascii=False)
             outfile.write("\n")
+            count += 1
 
-print(f"✅ Đã lưu các đoạn chia nhỏ vào {output_path}")
+print(f"✅ Đã chia nhỏ và lưu {count} response chunk vào {output_path}")
