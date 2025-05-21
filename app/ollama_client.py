@@ -1,11 +1,4 @@
-import requests
+from langchain_community.llms import Ollama
 
-def query_ollama(prompt, model="llama3"):
-    url = "http://localhost:11434/api/generate"
-    payload = {
-        "model": model,
-        "prompt": prompt,
-        "stream": False
-    }
-    response = requests.post(url, json=payload)
-    return response.json()["response"]
+def get_ollama_model(model_name: str):
+    return Ollama(model=model_name)
