@@ -1,4 +1,4 @@
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaLLM
 
 def get_ollama_model(model_name: str):
-    return Ollama(model=model_name)
+    return OllamaLLM(model=model_name)

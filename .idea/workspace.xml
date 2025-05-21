@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73447139-6b2d-4cea-a5d0-29b926430ac7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/upload_to_chroma.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testScripts/query_chroma.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/streamlit_app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/start_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ollama_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ollama_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/testScripts/test_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rag_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rag_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +56,7 @@
     "Python.download_dataset (1).executor": "Run",
     "Python.embedding_dataset.executor": "Run",
     "Python.import_data.executor": "Run",
+    "Python.main.executor": "Run",
     "Python.query_chroma.executor": "Run",
     "Python.test_model.executor": "Run",
     "Python.upload_to_chroma.executor": "Run",
@@ -76,7 +78,7 @@
       <recent name="C:\Users\Binh\PycharmProjects\chatbot\testScripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.query_chroma">
+  <component name="RunManager" selected="Python.main">
     <configuration name="chunk_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="chatbot" />
       <option name="ENV_FILES" value="" />
@@ -260,7 +262,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>5</line>
+          <line>6</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -269,6 +271,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chatbot$clean_dataset.coverage" NAME="clean_dataset Coverage Results" MODIFIED="1747753251435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/chatbot$query_chroma.coverage" NAME="query_chroma Coverage Results" MODIFIED="1747848283803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testScripts" />
+    <SUITE FILE_PATH="coverage/chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1747851177215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/chatbot$data_analyze.coverage" NAME="data_analyze Coverage Results" MODIFIED="1747754417433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/chatbot$test_model.coverage" NAME="test_model Coverage Results" MODIFIED="1747652173553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
     <SUITE FILE_PATH="coverage/chatbot$import_data.coverage" NAME="import_data Coverage Results" MODIFIED="1747586357730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts" />
