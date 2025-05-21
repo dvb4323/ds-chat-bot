@@ -5,3 +5,6 @@ The data is from: https://huggingface.co/datasets/lavita/ChatDoctor-HealthCareMa
 ollama: https://ollama.com/download
 
 Các thư viện cần thiết trong requirements.txt
+
+## How to Run
+Chạy file main.py
