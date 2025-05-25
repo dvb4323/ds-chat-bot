@@ -101,8 +101,6 @@ class SimpleRAGChatbot:
 
             # Gọi RAG chain
             chain = self.chains[self.current_model]
-            if self.current_model == "deepseek-r1":
-                message = f"Please be concise. {message}"
             print(f"🤖 Đang xử lý với model: {self.current_model}")
 
             # Lấy response
@@ -241,7 +239,7 @@ simple_css = """
 with gr.Blocks(title="Simple RAG Chatbot", css=simple_css) as app:
     # Header
     gr.Markdown("# 🤖 Simple RAG Chatbot")
-    gr.Markdown("**Fixed version** - Đảm bảo hiển thị full response")
+    gr.Markdown("Medical Assistant")
 
     if not RAG_AVAILABLE:
         gr.Markdown("⚠️ **Development Mode:** Sử dụng mock responses")
