@@ -101,6 +101,8 @@ class SimpleRAGChatbot:
 
             # Gọi RAG chain
             chain = self.chains[self.current_model]
+            if self.current_model == "deepseek-r1":
+                message = f"Please be concise. {message}"
             print(f"🤖 Đang xử lý với model: {self.current_model}")
 
             # Lấy response

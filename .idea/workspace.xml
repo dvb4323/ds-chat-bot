@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73447139-6b2d-4cea-a5d0-29b926430ac7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradio_app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interface/streamlit_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ollama_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ollama_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rag_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rag_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/streamlit_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-    </list>
+    <list default="true" id="73447139-6b2d-4cea-a5d0-29b926430ac7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -256,7 +246,7 @@
       <workItem from="1747753558363" duration="176000" />
       <workItem from="1747754166522" duration="4992000" />
       <workItem from="1747840569805" duration="6384000" />
-      <workItem from="1748178386585" duration="7344000" />
+      <workItem from="1748178386585" duration="7835000" />
     </task>
     <servers />
   </component>
