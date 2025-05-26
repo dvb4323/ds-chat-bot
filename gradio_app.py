@@ -63,7 +63,7 @@ IMPORTANT: This is general information only. For persistent headaches, consult a
 
 class SimpleRAGChatbot:
     def __init__(self):
-        self.models = ["llama3", "mistral", "deepseek", "deepseek-r1"]
+        self.models = ["llama3", "mistral", "deepseek-r1"]
         self.chains = {}
         self.chat_histories = {model: [] for model in self.models}
         self.current_model = "deepseek-r1"  # Test với problematic model
