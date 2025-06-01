@@ -9,7 +9,7 @@ def build_rag(model_name="llama3"):
     # embedding = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
     embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vectordb = Chroma(
-        persist_directory="../db/chroma_db",
+        persist_directory="./db/chroma_db",
         embedding_function=embedding,
         collection_name="healthcare_chunks"
     )

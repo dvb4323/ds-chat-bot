@@ -1,0 +1,75 @@
+2025-06-01 15:48:05,935 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 15:48:28,045 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 15:48:29,289 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 15:48:33,200 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 15:48:33,230 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:04:31,302 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 16:04:37,434 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 16:04:37,963 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 16:04:41,511 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 16:04:41,512 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ../db/chroma_db
+2025-06-01 16:04:41,539 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:04:41,654 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 0
+2025-06-01 16:04:41,654 - app.enhanced_rag_pipeline - WARNING - ⚠️ Vector database is empty. Consider adding documents.
+2025-06-01 16:04:41,654 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 16:10:12,635 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 16:10:18,358 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 16:10:18,726 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 16:10:23,248 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 16:10:23,249 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ../db/chroma_db
+2025-06-01 16:10:23,279 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:10:23,381 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 0
+2025-06-01 16:10:23,381 - app.enhanced_rag_pipeline - WARNING - ⚠️ Vector database is empty. Consider adding documents.
+2025-06-01 16:10:23,381 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 16:10:23,382 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 16:10:24,005 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 16:10:24,135 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 16:10:24,602 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 16:10:51,608 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 4.71s
+2025-06-01 16:10:51,653 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.7
+2025-06-01 16:11:00,710 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:11:06,045 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 19.15s
+2025-06-01 16:11:06,045 - __main__ - INFO - Query processed in 19.15s
+2025-06-01 16:25:55,757 - __main__ - INFO - Starting application cleanup...
+2025-06-01 16:25:55,757 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 16:25:55,757 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 16:25:55,758 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 16:26:04,270 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 16:26:10,273 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 16:26:10,677 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 16:26:14,898 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 16:26:14,898 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ../db/chroma_db
+2025-06-01 16:26:14,925 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:26:15,029 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 16:26:15,031 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 0 documents
+2025-06-01 16:26:15,074 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 0
+2025-06-01 16:26:15,074 - app.enhanced_rag_pipeline - WARNING - ⚠️ Vector database appears empty through LangChain wrapper
+2025-06-01 16:26:15,074 - app.enhanced_rag_pipeline - INFO - Attempting direct collection access...
+2025-06-01 16:26:15,074 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 16:26:15,074 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 16:26:15,662 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 16:26:15,694 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 16:26:16,385 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 16:33:10,310 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 16:33:16,276 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 16:33:16,781 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 16:33:20,755 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 16:33:20,756 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 16:33:20,783 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:33:20,870 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 16:33:21,139 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 16:33:21,189 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 16:33:21,190 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 16:33:21,190 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 16:33:21,789 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 16:33:21,807 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 16:33:22,462 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 16:33:39,437 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 4.95s
+2025-06-01 16:33:39,510 - langchain_core.vectorstores.base - WARNING - No relevant docs were retrieved using the relevance score threshold 0.7
+2025-06-01 16:33:46,603 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:34:12,388 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 37.90s
+2025-06-01 16:34:12,389 - __main__ - INFO - Query processed in 37.90s
+2025-06-01 16:38:28,866 - __main__ - INFO - Starting application cleanup...
+2025-06-01 16:38:28,866 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 16:38:28,877 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 16:38:28,878 - __main__ - INFO - Cleanup completed successfully
