@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73447139-6b2d-4cea-a5d0-29b926430ac7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradio_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/gradio_app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +250,7 @@
       <workItem from="1747840569805" duration="6384000" />
       <workItem from="1748178386585" duration="8159000" />
       <workItem from="1748186676691" duration="823000" />
-      <workItem from="1748220209210" duration="405000" />
+      <workItem from="1748220209210" duration="3703000" />
     </task>
     <servers />
   </component>

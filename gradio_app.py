@@ -66,7 +66,7 @@ class SimpleRAGChatbot:
         self.models = ["llama3", "mistral", "deepseek-r1"]
         self.chains = {}
         self.chat_histories = {model: [] for model in self.models}
-        self.current_model = "deepseek-r1"  # Test với problematic model
+        self.current_model = "llama3"  # Test với problematic model
         print(f"🚀 Khởi tạo Simple RAG Chatbot")
 
     def load_model(self, model_name: str) -> str:
