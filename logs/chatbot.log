@@ -73,3 +73,284 @@
 2025-06-01 16:38:28,866 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
 2025-06-01 16:38:28,877 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
 2025-06-01 16:38:28,878 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 16:40:14,575 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 16:40:26,539 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 16:40:27,572 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 16:40:31,522 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 16:40:31,523 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 16:40:31,597 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:40:31,697 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 16:40:32,109 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 16:40:32,193 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 16:40:32,194 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 16:40:32,194 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 16:40:32,926 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 16:40:32,982 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 16:40:33,513 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 16:40:50,747 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 5.18s
+2025-06-01 16:40:58,339 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:41:21,557 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 35.99s
+2025-06-01 16:41:21,557 - __main__ - INFO - Query processed in 35.99s
+2025-06-01 16:41:42,798 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:42:08,639 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 26.21s
+2025-06-01 16:42:08,640 - __main__ - INFO - Query processed in 26.21s
+2025-06-01 16:43:58,323 - __main__ - INFO - Starting application cleanup...
+2025-06-01 16:43:58,324 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 16:43:58,324 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 16:43:58,324 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 16:44:19,581 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 16:44:31,651 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 16:44:32,708 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 16:44:36,590 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 16:44:36,591 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 16:44:36,660 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 16:44:36,766 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 16:44:37,590 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 16:44:37,677 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 16:44:37,678 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 16:44:37,680 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 16:44:38,423 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 16:44:38,463 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 16:44:38,968 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 16:45:16,904 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 5.66s
+2025-06-01 16:45:17,353 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:45:50,366 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 39.12s
+2025-06-01 16:45:50,366 - __main__ - INFO - Query processed in 39.12s
+2025-06-01 16:46:24,577 - app.enhanced_rag_pipeline - INFO - Starting Ollama model: mistral
+2025-06-01 16:46:29,881 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for mistral built in 7.20s
+2025-06-01 16:46:33,809 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:46:39,646 - app.enhanced_rag_pipeline - INFO - Query processed for mistral in 16.97s
+2025-06-01 16:46:39,647 - __main__ - INFO - Query processed in 16.97s
+2025-06-01 16:47:33,006 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for deepseek-r1 built in 4.63s
+2025-06-01 16:47:42,933 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 16:48:48,890 - app.enhanced_rag_pipeline - INFO - Query processed for deepseek-r1 in 80.52s
+2025-06-01 16:48:48,891 - __main__ - INFO - Query processed in 80.52s
+2025-06-01 17:12:34,626 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:12:34,626 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:12:34,641 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:12:34,641 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:12:48,040 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:12:56,959 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:12:57,652 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:13:01,813 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:13:01,814 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:13:01,859 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:13:01,939 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:13:02,646 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:13:02,707 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:13:02,708 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:13:02,708 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:13:03,354 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:13:03,377 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:13:04,078 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:13:36,484 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 5.23s
+2025-06-01 17:13:44,402 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:14:06,428 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 35.17s
+2025-06-01 17:14:06,429 - __main__ - INFO - Query processed in 35.17s
+2025-06-01 17:16:22,936 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:16:22,937 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:16:22,937 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:16:22,937 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:16:34,847 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:16:45,097 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:16:45,903 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:16:50,472 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:16:50,472 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:16:50,529 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:16:50,612 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:16:51,382 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:16:51,452 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:16:51,453 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:16:51,453 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:16:52,136 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:16:52,187 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:16:52,791 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:17:08,465 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 5.46s
+2025-06-01 17:17:08,964 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:17:39,283 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 36.27s
+2025-06-01 17:17:39,283 - __main__ - INFO - Query processed in 36.28s
+2025-06-01 17:22:17,182 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:22:17,183 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:22:17,183 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:22:17,183 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:22:35,148 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:22:42,600 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:22:43,275 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:22:47,814 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:22:47,814 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:22:47,852 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:22:47,944 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:22:48,300 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:22:48,363 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:22:48,363 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:22:48,364 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:22:49,026 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:22:49,066 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:22:49,719 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:23:04,803 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 5.52s
+2025-06-01 17:23:16,084 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:23:47,409 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 48.13s
+2025-06-01 17:23:47,410 - __main__ - INFO - Query processed in 48.13s
+2025-06-01 17:26:14,111 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:26:14,112 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:26:14,112 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:26:14,113 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:26:28,897 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:26:38,542 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:26:39,364 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:26:43,639 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:26:43,640 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:26:43,695 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:26:43,785 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:26:44,551 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:26:44,621 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:26:44,622 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:26:44,622 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:26:45,277 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:26:45,329 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:26:45,972 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:27:53,328 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:27:53,328 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:27:53,328 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:27:53,329 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:29:56,826 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:30:05,087 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:30:05,765 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:30:09,398 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:30:09,399 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:30:09,444 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:30:09,535 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:30:09,958 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:30:10,053 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:30:10,054 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:30:10,054 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:30:10,886 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:30:10,922 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:30:11,393 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:30:36,562 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 4.70s
+2025-06-01 17:30:43,879 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:31:09,347 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 37.49s
+2025-06-01 17:31:09,347 - __main__ - INFO - Query processed in 37.49s
+2025-06-01 17:31:10,002 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:31:10,002 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:31:10,002 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:31:10,002 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:34:42,244 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:34:50,612 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:34:51,230 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:34:55,026 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:34:55,027 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:34:55,106 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:34:55,210 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:34:55,993 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:34:56,059 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:34:56,059 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:34:56,059 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:34:56,708 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:34:56,748 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:34:57,448 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:38:49,064 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:38:49,065 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:38:49,065 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:38:49,065 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:39:01,719 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:39:09,213 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:39:09,689 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:39:13,156 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:39:13,156 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:39:13,193 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:39:13,289 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:39:13,659 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:39:13,726 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:39:13,727 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:39:13,727 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:39:14,346 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:39:14,387 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:39:15,037 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:41:57,788 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:42:03,653 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:42:04,142 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:42:08,043 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:42:08,044 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:42:08,071 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:42:08,172 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:42:08,438 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:42:08,489 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:42:08,489 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:42:08,489 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:42:09,470 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:42:09,509 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:42:09,922 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:42:28,558 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 4.72s
+2025-06-01 17:42:38,195 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:43:02,903 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 39.07s
+2025-06-01 17:43:02,904 - __main__ - INFO - Query processed in 39.07s
+2025-06-01 17:44:02,399 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:44:11,560 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:44:12,157 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:44:16,030 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:44:16,031 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:44:16,081 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:44:16,168 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:44:16,946 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:44:17,010 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:44:17,010 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:44:17,011 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:44:17,737 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:44:17,777 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:44:18,347 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:47:53,969 - __main__ - INFO - Starting application cleanup...
+2025-06-01 17:47:53,970 - app.enhanced_rag_pipeline - INFO - 🔄 Shutting down RAG pipeline...
+2025-06-01 17:47:53,970 - app.enhanced_rag_pipeline - INFO - ✅ RAG pipeline shutdown complete
+2025-06-01 17:47:53,970 - __main__ - INFO - Cleanup completed successfully
+2025-06-01 17:48:06,058 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:48:13,542 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:48:14,007 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:48:17,667 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:48:17,667 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:48:17,701 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:48:17,784 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:48:18,149 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:48:18,209 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:48:18,210 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:48:18,210 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:48:18,875 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:48:18,903 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:48:19,576 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:50:47,956 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:50:55,315 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:50:55,788 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:50:59,398 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:50:59,399 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:50:59,429 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:50:59,511 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:50:59,859 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:50:59,919 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:50:59,920 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:50:59,920 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:51:00,600 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:51:00,637 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:51:01,235 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-01 17:51:23,760 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for llama3 built in 4.82s
+2025-06-01 17:51:33,230 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:51:53,869 - app.enhanced_rag_pipeline - INFO - Query processed for llama3 in 34.93s
+2025-06-01 17:51:53,869 - __main__ - INFO - Query processed in 34.93s
+2025-06-01 17:52:07,037 - app.enhanced_rag_pipeline - INFO - Starting Ollama model: mistral
+2025-06-01 17:52:12,052 - app.enhanced_rag_pipeline - INFO - ✅ RAG chain for mistral built in 7.06s
+2025-06-01 17:52:19,286 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2025-06-01 17:52:32,251 - app.enhanced_rag_pipeline - INFO - Query processed for mistral in 27.26s
+2025-06-01 17:52:32,251 - __main__ - INFO - Query processed in 27.26s
+2025-06-01 17:55:12,292 - app.enhanced_rag_pipeline - INFO - Loading embeddings model: all-MiniLM-L6-v2
+2025-06-01 17:55:21,108 - datasets - INFO - PyTorch version 2.7.0 available.
+2025-06-01 17:55:22,056 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-01 17:55:26,989 - app.enhanced_rag_pipeline - INFO - ✅ Embeddings model loaded successfully
+2025-06-01 17:55:26,989 - app.enhanced_rag_pipeline - INFO - Connecting to ChromaDB at: ./db/chroma_db
+2025-06-01 17:55:27,038 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-06-01 17:55:27,133 - app.enhanced_rag_pipeline - INFO - Available collections: ['healthcare_chunks']
+2025-06-01 17:55:27,965 - app.enhanced_rag_pipeline - INFO - Found collection 'healthcare_chunks' with 74233 documents
+2025-06-01 17:55:28,038 - app.enhanced_rag_pipeline - INFO - ✅ Connected to ChromaDB. Documents: 74233
+2025-06-01 17:55:28,038 - __main__ - INFO - Enhanced RAG pipeline initialized successfully
+2025-06-01 17:55:28,039 - __main__ - INFO - Simplified ChatGPT RAG initialized successfully
+2025-06-01 17:55:28,759 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-06-01 17:55:28,795 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-06-01 17:55:29,345 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"

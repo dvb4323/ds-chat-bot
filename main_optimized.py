@@ -208,7 +208,7 @@ class SimplifiedChatGPTRAG:
         return conv_id
 
     def get_conversation_list(self) -> List[Tuple[str, str]]:
-        """Get formatted conversation list"""
+        """Get formatted conversation list for dropdown"""
         conversations = []
         max_conversations = self.config.get("ui.max_conversations", 50)
 
@@ -226,7 +226,8 @@ class SimplifiedChatGPTRAG:
 
             query_count = data.get("query_count", 0)
             display_text = f"{title} ({query_count} msgs)"
-            conversations.append((conv_id, display_text))
+            # Return as (display_text, conv_id) for Gradio dropdown
+            conversations.append((display_text, conv_id))
 
         return conversations
 
@@ -237,7 +238,7 @@ class SimplifiedChatGPTRAG:
             conv_data = self.conversations[conv_id]
             self.current_model = conv_data.get("model", self.current_model)
 
-            # Convert messages to Gradio format
+            # Convert messages to Gradio tuples format
             history = []
             messages = conv_data.get("messages", [])
 
@@ -332,7 +333,7 @@ Response time: simulated"""
                     else:
                         # Fallback to basic RAG
                         chain = load_rag_chain(self.current_model)
-                        result = chain({"query": message})
+                        result = chain.invoke({"query": message})  # Fix deprecation
                         response = result.get("result", "No response generated")
 
                         # Add timing info
@@ -351,15 +352,15 @@ Response time: simulated"""
             if "<think>" in response and "</think>" in response:
                 response = self._format_deepseek_response(response)
 
-            # Update conversation
+            # Update conversation - CRITICAL: Update count FIRST
             conv = self.conversations[self.current_conversation_id]
             conv["messages"].extend([
                 {"role": "user", "content": message, "timestamp": start_time},
                 {"role": "assistant", "content": response, "timestamp": time.time()}
             ])
-            conv["query_count"] += 1
+            conv["query_count"] += 1  # Increment BEFORE title update
 
-            # Update conversation title if first message
+            # Update conversation title AFTER incrementing count
             if conv["title"] == "New Chat" and conv["query_count"] == 1:
                 conv["title"] = message[:50] + ("..." if len(message) > 50 else "")
 
@@ -368,7 +369,7 @@ Response time: simulated"""
             total_time = time.time() - start_time
             self.total_response_time += total_time
 
-            # Add to history
+            # Add to history in tuples format
             history.append([message, response])
 
             logger.info(f"Query processed in {total_time:.2f}s")
@@ -378,6 +379,7 @@ Response time: simulated"""
         except Exception as e:
             error_msg = f"Error: {str(e)}"
             logger.error(f"Chat processing error: {e}")
+            # Add error to history in tuples format
             history.append([message, error_msg])
             return history, ""
 
@@ -401,29 +403,6 @@ Response time: simulated"""
             logger.error(f"Error formatting DeepSeek response: {e}")
 
         return response
-
-    def clear_conversation(self) -> Tuple[List, str]:
-        """Clear current conversation"""
-        if self.current_conversation_id in self.conversations:
-            self.conversations[self.current_conversation_id]["messages"] = []
-            self.conversations[self.current_conversation_id]["query_count"] = 0
-            return [], "Conversation cleared"
-        return [], "No active conversation"
-
-    def delete_conversation(self, conv_id: str) -> Tuple[str, List]:
-        """Delete conversation"""
-        if conv_id in self.conversations and len(self.conversations) > 1:
-            del self.conversations[conv_id]
-
-            # Switch to another conversation if current was deleted
-            if conv_id == self.current_conversation_id:
-                remaining_convs = list(self.conversations.keys())
-                self.current_conversation_id = remaining_convs[0]
-
-            updated_list = self.get_conversation_list()
-            return "Conversation deleted", updated_list
-
-        return "Cannot delete conversation", self.get_conversation_list()
 
     def get_system_status(self) -> str:
         """Get comprehensive system status"""
@@ -574,17 +553,24 @@ def create_gradio_interface(app: SimplifiedChatGPTRAG) -> gr.Blocks:
 
                 gr.Markdown("### Conversations")
 
-                new_chat_btn = gr.Button("➕ New Chat", variant="primary")
+                new_chat_btn = gr.Button(
+                    "➕ New Chat",
+                    variant="primary",
+                    elem_id="new_chat_button"
+                )
+
+                # refresh_btn = gr.Button(
+                #     "🔄 Refresh List",
+                #     variant="secondary"
+                # )
 
                 conversation_dropdown = gr.Dropdown(
                     choices=app.get_conversation_list(),
                     value=app.current_conversation_id,
-                    label="Select Conversation"
+                    label="Select Conversation",
+                    allow_custom_value=True,  # Allow custom values to prevent errors
+                    interactive=True
                 )
-
-                with gr.Row():
-                    clear_btn = gr.Button("🗑️ Clear")
-                    delete_btn = gr.Button("❌ Delete")
 
                 gr.Markdown("### System")
                 status_btn = gr.Button("📋 Show Status")
@@ -598,13 +584,13 @@ def create_gradio_interface(app: SimplifiedChatGPTRAG) -> gr.Blocks:
 
             # Chat Area
             with gr.Column(scale=3):
-                # Chat Interface - Fix deprecation warning
+                # Chat Interface - Revert to tuples format for simplicity
                 chat_interface = gr.Chatbot(
                     label="Chat",
                     height=500,
                     show_copy_button=True,
-                    avatar_images=("👤", "🤖"),
-                    type="messages"  # Fix deprecation warning
+                    avatar_images=("👤", "🤖")
+                    # Remove type="messages" để dùng tuples format
                 )
 
                 # Input Area
@@ -636,73 +622,152 @@ def create_gradio_interface(app: SimplifiedChatGPTRAG) -> gr.Blocks:
             return app.change_model(model_name)
 
         def handle_new_chat():
-            history, status, conv_list, conv_id = app.start_new_conversation()
-            return history, status, conv_list, conv_id
+            """Minimal new chat - exactly 2 outputs"""
+            try:
+                print("🔄 NEW CHAT: Starting...")
+
+                # Prevent multiple calls
+                if hasattr(app, '_creating_chat') and app._creating_chat:
+                    print("⚠️ NEW CHAT: Already in progress")
+                    return [], "Creating..."  # Exactly 2 outputs
+
+                app._creating_chat = True
+
+                try:
+                    # Create conversation
+                    import time, random
+                    timestamp = int(time.time() * 1000)
+                    conv_id = f"conv_{timestamp}_{random.randint(100, 999)}"
+
+                    print(f"🆕 NEW CHAT: Creating {conv_id}")
+
+                    app.conversations[conv_id] = {
+                        "messages": [],
+                        "model": app.current_model,
+                        "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                        "title": "New Chat",
+                        "query_count": 0
+                    }
+
+                    old_conv_id = app.current_conversation_id
+                    app.current_conversation_id = conv_id
+
+                    print(f"✅ NEW CHAT: Created {conv_id}")
+
+                    # Return exactly 2 outputs: chat_interface, model_status
+                    return [], "✨ New conversation created"
+
+                finally:
+                    app._creating_chat = False
+
+            except Exception as e:
+                print(f"❌ NEW CHAT ERROR: {e}")
+                app._creating_chat = False
+                return [], f"Error: {str(e)}"  # Exactly 2 outputs
 
         def handle_conversation_switch(conv_id):
-            history, status = app.switch_conversation(conv_id)
-            return history, status, conv_id
+            """Fixed conversation switch - handle Gradio's quirky behavior"""
+            try:
+                print(f"🔄 Switching to conversation: {conv_id}")
+
+                # CRITICAL FIX: Handle when Gradio passes choices list instead of value
+                actual_conv_id = None
+
+                if isinstance(conv_id, list):
+                    print(f"⚠️ Received choices list instead of value")
+                    # Don't process - this is likely a programmatic update
+                    return [], "Updating...", app.current_conversation_id
+
+                elif isinstance(conv_id, str):
+                    actual_conv_id = conv_id
+
+                else:
+                    print(f"❌ Unexpected input type: {type(conv_id)}")
+                    return [], "❌ Invalid selection", app.current_conversation_id
+
+                # Validate conversation exists
+                if not actual_conv_id or actual_conv_id not in app.conversations:
+                    print(f"❌ Conversation {actual_conv_id} not found")
+                    return [], "❌ Conversation not found", app.current_conversation_id
+
+                # Only switch if it's different from current
+                if actual_conv_id == app.current_conversation_id:
+                    print(f"📌 Already on conversation {actual_conv_id}")
+                    return [], f"✅ Current: {app.conversations[actual_conv_id].get('title', 'Chat')}", actual_conv_id
+
+                print(f"🔄 Switching from {app.current_conversation_id} to {actual_conv_id}")
+
+                # Perform switch
+                app.current_conversation_id = actual_conv_id
+                conv_data = app.conversations[actual_conv_id]
+                app.current_model = conv_data.get("model", app.current_model)
+
+                # Convert messages to history
+                history = []
+                messages = conv_data.get("messages", [])
+
+                for i in range(0, len(messages), 2):
+                    if i + 1 < len(messages):
+                        user_msg = messages[i]["content"]
+                        assistant_msg = messages[i + 1]["content"]
+                        history.append([user_msg, assistant_msg])
+
+                title = conv_data.get('title', 'Chat')
+                print(f"✅ Switched to: {title} ({len(history)} message pairs)")
+                return history, f"✅ Switched to: {title}", actual_conv_id
+
+            except Exception as e:
+                print(f"❌ Error switching conversation: {e}")
+                import traceback
+                traceback.print_exc()
+                return [], f"Error: {str(e)}", app.current_conversation_id
 
         def handle_chat(message, history):
             return app.process_chat(message, history)
 
-        def handle_clear():
-            history, status = app.clear_conversation()
-            conv_list = app.get_conversation_list()
-            return history, status, conv_list
-
-        def handle_delete(conv_id):
-            status, conv_list = app.delete_conversation(conv_id)
-            if conv_list:
-                new_conv_id = conv_list[0][0]
-                history, _ = app.switch_conversation(new_conv_id)
-                return history, status, conv_list, new_conv_id
-            else:
-                return handle_new_chat()
-
         def handle_status_check():
             return app.get_system_status()
 
-        # Wire up events
-        model_dropdown.change(
-            fn=handle_model_change,
-            inputs=[model_dropdown],
-            outputs=[model_status]
-        )
+        # Wire up events with minimal outputs
+        try:
+            model_dropdown.change(
+                fn=handle_model_change,
+                inputs=[model_dropdown],
+                outputs=[model_status]
+            )
 
-        new_chat_btn.click(
-            fn=handle_new_chat,
-            outputs=[chat_interface, model_status, conversation_dropdown, conversation_state]
-        )
+            # MINIMAL FIX: Only update chat history and status
+            new_chat_btn.click(
+                fn=handle_new_chat,
+                outputs=[chat_interface, model_status],  # Only 2 outputs instead of 4
+                show_progress="hidden",
+                concurrency_limit=1,
+                queue=True
+            )
 
-        conversation_dropdown.change(
-            fn=handle_conversation_switch,
-            inputs=[conversation_dropdown],
-            outputs=[chat_interface, model_status, conversation_state]
-        )
+            # Separate refresh button for dropdown
+            # refresh_btn.click(
+            #     fn=refresh_conversation_list,
+            #     outputs=[conversation_dropdown],
+            #     show_progress=False
+            # )
 
-        msg_input.submit(
-            fn=handle_chat,
-            inputs=[msg_input, chat_interface],
-            outputs=[chat_interface, msg_input]
-        )
+            msg_input.submit(
+                fn=handle_chat,
+                inputs=[msg_input, chat_interface],
+                outputs=[chat_interface, msg_input],
+                show_progress="full"
+            )
 
-        send_btn.click(
-            fn=handle_chat,
-            inputs=[msg_input, chat_interface],
-            outputs=[chat_interface, msg_input]
-        )
+            send_btn.click(
+                fn=handle_chat,
+                inputs=[msg_input, chat_interface],
+                outputs=[chat_interface, msg_input],
+                show_progress="full"
+            )
 
-        clear_btn.click(
-            fn=handle_clear,
-            outputs=[chat_interface, model_status, conversation_dropdown]
-        )
-
-        delete_btn.click(
-            fn=handle_delete,
-            inputs=[conversation_state],
-            outputs=[chat_interface, model_status, conversation_dropdown, conversation_state]
-        )
+        except Exception as e:
+            print(f"❌ Error setting up event handlers: {e}")
 
         status_btn.click(
             fn=handle_status_check,

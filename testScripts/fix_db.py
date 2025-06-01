@@ -17,7 +17,7 @@ def test_direct_chromadb():
 
     try:
         # Connect using direct client (same as upload script)
-        client = chromadb.PersistentClient(path="../db/chroma_db")
+        client = chromadb.PersistentClient(path="../../db/chroma_db")
 
         # List all collections
         collections = client.list_collections()
